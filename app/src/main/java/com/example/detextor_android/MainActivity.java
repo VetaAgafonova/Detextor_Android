@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     private String selectedImagePath;
     ImageView imageView;
-    Button btOpen, btGallery;
+    Button btOpen, btGallery, btnText;
 
 
     @Override
@@ -43,6 +43,14 @@ public class MainActivity extends AppCompatActivity {
         imageView =findViewById(R.id.image_view);
         btOpen=findViewById(R.id.bt_open);
         btGallery=findViewById(R.id.bt_gallery);
+        btnText=findViewById(R.id.bt_text);
+        btnText.setOnClickListener(new OnClickListener() {
+            public void onClick(View arg0) {
+                Intent intent = new Intent(MainActivity.this, OutText.class);
+                startActivity(intent);
+            }
+        });
+
 
         btGallery.setOnClickListener(new OnClickListener() {
                     public void onClick(View arg0) {
