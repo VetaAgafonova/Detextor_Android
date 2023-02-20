@@ -1,5 +1,6 @@
 package com.example.detextor_android;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -11,6 +12,9 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -77,6 +81,40 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.history:
+                Intent intent = new Intent(MainActivity.this, History.class);
+                startActivity(intent);
+                return true;
+            case R.id.reference:
+                Intent intent1 = new Intent(MainActivity.this, History.class);
+                startActivity(intent1);
+                return true;
+            case R.id.favourites:
+                Intent intent2 = new Intent(MainActivity.this, History.class);
+                startActivity(intent2);
+                return true;
+            case R.id.settings:
+                Intent intent3 = new Intent(MainActivity.this, History.class);
+                startActivity(intent3);
+                return true;
+
+        }
+
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater =getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
