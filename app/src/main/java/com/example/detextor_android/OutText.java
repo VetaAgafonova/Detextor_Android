@@ -53,7 +53,7 @@ public class OutText extends Activity{
             FileOutputStream fileOutputStream=openFileOutput("text.txt", MODE_PRIVATE);
             fileOutputStream.write(myText.getBytes());
             fileOutputStream.close();
-            Toast.makeText(OutText.this,"Saved",Toast.LENGTH_LONG).show();
+            Toast.makeText(OutText.this,"Saved",Toast.LENGTH_SHORT).show();
         }catch (FileNotFoundException e){
             e.printStackTrace();
         }catch (IOException e){
