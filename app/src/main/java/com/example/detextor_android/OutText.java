@@ -3,6 +3,7 @@ package com.example.detextor_android;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Bundle;
 
@@ -28,6 +29,7 @@ public class OutText extends Activity{
     private final static String FILENAME = "sample.txt"; // имя файла
     private EditText outText;
     Button btSave, btFav, btnBack;
+    int m;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,24 @@ public class OutText extends Activity{
                 startActivity(intent);
             }
         });
+
+        btFav.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View arg0) {
+                SharedPreferences preferences = getSharedPreferences("fav", MODE_PRIVATE);
+                m = preferences.getInt("n",0);
+                System.out.println(m);
+                m++;
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("text",outText.getText().toString()).apply();
+                editor.putInt("n", m).apply();
+
+                Intent intent = new Intent(OutText.this, Favorites.class);
+                startActivity(intent);
+
+            }
+        });
+
 
 
     }

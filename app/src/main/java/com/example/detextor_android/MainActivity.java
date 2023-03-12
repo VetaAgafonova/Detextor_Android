@@ -90,21 +90,18 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case R.id.reference:
-                Intent intent1 = new Intent(MainActivity.this, History.class);
+                Intent intent1 = new Intent(MainActivity.this, Reference.class);
                 startActivity(intent1);
                 return true;
             case R.id.favourites:
-                Intent intent2 = new Intent(MainActivity.this, History.class);
+                Intent intent2 = new Intent(MainActivity.this, Favorites.class);
                 startActivity(intent2);
                 return true;
             case R.id.settings:
-                Intent intent3 = new Intent(MainActivity.this, History.class);
+                Intent intent3 = new Intent(MainActivity.this, Settings.class);
                 startActivity(intent3);
                 return true;
-
         }
-
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -116,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @Override
+    /*@Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 100) {
@@ -139,5 +136,5 @@ public class MainActivity extends AppCompatActivity {
         int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
         cursor.moveToFirst();
         return cursor.getString(column_index);
-    }
+    }*/
 }
